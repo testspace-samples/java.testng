@@ -1,0 +1,19 @@
+language: java
+
+env:
+  global:
+    - secure: VpGJen1yjMHUkveYiN893EH8kdlFoZzwAuXprcPBgrgvvzff6rTdLtNOK4ao4h+wdpsJpL0giXT8rslmtMYW4k5Iv822LRZxSP+prZl63rXDhq0WGzNhk46Ls1CNDxNsStJJWCvGlJAMHSsgo7GXVvM4yKx6vUTfUsrYLl4SKt9ZDD9zF5qlgbq4s+hm28A4KcyfC0NCmDt0tnM99ygf00Lo568+56+KUr+fD1shejmjasC+jas/kxqTmE/8RoOF5LIVMV/4GizxLfEiX7BF70FlgMV+v+RkvYxubJV0gemrOie7ugairkKnxq+iq986bKs2sPaBB+iqfUDa+nhCoQ==
+
+before_script:
+  - ./testspace_install.sh
+  - mkdir -p shippable/codecoverage
+  - mkdir -p shippable/testresults
+
+script:
+  - export PATH="${HOME}/testspace:${PATH}"
+  - testspace config url $TESTSPACE_TOKEN
+  - testspace import .testspace.xml
+  - testspace run
+
+  - cp target/surefire-reports/junitreports/TEST*.xml shippable/testresults
+  - cp target/site/cobertura/coverage.xml shippable/codecoverage

@@ -1,0 +1,4 @@
+# Sample stuff
+target/
+.testresult.links/
+testresult.*
