@@ -3,8 +3,8 @@
   <root>
     <attributes>
       <![CDATA[INSTALL_DIR  = $PWD
-RESULTS_DIR  = ${INSTALL_DIR}/target/surefire-reports
-COVERAGE_DIR = ${INSTALL_DIR}/target/site/cobertura]]>
+RESULTS_DIR  = $INSTALL_DIR/target/surefire-reports
+COVERAGE_DIR = $INSTALL_DIR/target/site/cobertura]]>
     </attributes>
     <suite name="Compile" state="1" id=".sh" description="**Compiling** Classes">
       <attributes>
@@ -15,7 +15,7 @@ mvn clean compile]]>
     <suite name="Tests" state="1" id=".sh" description="run **all** of the tests">
       <attributes>
         <![CDATA[mvn cobertura:cobertura -Dcobertura.report.format=xml
-echo "${RESULTS_DIR}/TEST-TestSuite.xml" > ${self.result}]]>
+echo "$RESULTS_DIR/TEST-TestSuite.xml" > ${self.result}]]>
       </attributes>
     </suite>
     <suite name="Coverage" state="1" id=".sh" description="Code coverage based on latest run. Review the ==Reports== tab for historical tracking">
