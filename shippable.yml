@@ -7,14 +7,8 @@ env:
 before_script:
   - ./testspace_install.sh
   - export PATH="${HOME}/testspace:${PATH}"
-  - mkdir -p shippable/codecoverage
-  - mkdir -p shippable/testresults
 
 script:
   - testspace config url $TESTSPACE_TOKEN
   - testspace import .testspace.xml
   - testspace run
-
-after_script:
-  - cp target/surefire-reports/TEST-TestSuite.xml shippable/testresults
-  - cp target/site/cobertura/coverage.xml shippable/codecoverage
