@@ -2,7 +2,7 @@ language: java
 
 env:
   global:
-    - secure: VpGJen1yjMHUkveYiN893EH8kdlFoZzwAuXprcPBgrgvvzff6rTdLtNOK4ao4h+wdpsJpL0giXT8rslmtMYW4k5Iv822LRZxSP+prZl63rXDhq0WGzNhk46Ls1CNDxNsStJJWCvGlJAMHSsgo7GXVvM4yKx6vUTfUsrYLl4SKt9ZDD9zF5qlgbq4s+hm28A4KcyfC0NCmDt0tnM99ygf00Lo568+56+KUr+fD1shejmjasC+jas/kxqTmE/8RoOF5LIVMV/4GizxLfEiX7BF70FlgMV+v+RkvYxubJV0gemrOie7ugairkKnxq+iq986bKs2sPaBB+iqfUDa+nhCoQ==
+    - secure: Bu0T8owDMS2cNtPZyo9BlepmXnsg07rGdBeaUPtW5Xwvb8WoJKP0tMDHGjz+T0tFSy19W4s1Ow4wzkFexpgYFQqPm4bZVT6ygoyogEx8V6qJosv4s1n0c61t4Mo0nFRAXY6msrv6jyZu3M2+uie08SZ/LP+5pfQ0TmnBsJ+kh5X5+2xdtryaR83rARUVt5jTKAdJedU38KdSDKfCrzsFM+N+rOvCEo8DTz3qX70CG1I3tudLbGe8IHcyH3apu0Lg2g+IESg/Geg22TCr7PARU3Tf0KhZ/8Ezs++RXCnMSLh+q7cuSn86LuSYjO0wqdqfipkW00z9RWNYra2eYK1L4g==
 
 before_script:
   - ./testspace_install.sh
