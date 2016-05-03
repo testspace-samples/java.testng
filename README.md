@@ -8,8 +8,8 @@ Sample demonstrates techniques for using Testspace with Java code and the [TestN
 ***
 
 [![Build Status](https://travis-ci.org/testspace-samples/java.testng.svg?branch=master)](https://travis-ci.org/testspace-samples/java.testng)
-[![Space Health](https://samples.testspace.com/projects/88/spaces/325/badge)](https://samples.testspace.com/projects/88/spaces/325 "Test Cases")
-[![Space Metric](https://samples.testspace.com/projects/88/spaces/325/metrics/228/badge)](https://samples.testspace.com/projects/88/spaces/325/metrics#metric-228 "Line/Statement Coverage")
+[![Space Health](https://samples.testspace.com/projects/88/spaces/327/badge)](https://samples.testspace.com/projects/88/spaces/327 "Test Cases")
+[![Space Metric](https://samples.testspace.com/projects/88/spaces/327/metrics/234/badge)](https://samples.testspace.com/projects/88/spaces/327/metrics#metric-234 "Line/Statement Coverage")
 
 ***
 
