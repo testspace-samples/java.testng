@@ -2,13 +2,12 @@ language: java
 
 env:
   global:
-    - secure: kmMY3oyTMTfw20msctpDr3K0Q0W1pVJQAgvrJgvs72wuQW5sEdIcnMYMvXpk5nIK/QPhMU9w0yYGf93ExrkhRE6vCO3ETG4maJwg2TJa8OFnLtqmNSeT/bktmUriazb3c0gwLJ7MwBCr+3M2WMivgjlaw6F+cQt1JiyXJ5SACMWtCl7qq35JxVdiNCe69fYca596e2crdY+yASYEDiZy+fQn8EBrlEx2E2cM79nK2KPdkazAIa98K30hDQyUoDsYsVfeBJDBXauu3XFOBqSBVO5aJ+WnYNnsienTPd0Cfqfe7/9UZ3zHnnaKblNr+LU2YlJvlOu2af4IYWIdE50BEw==
-
+    - secure: dB85bpbd+0gOvdOcFTHLHKKyW8TB18p+UK9g1dg/DGUFLzajdO6GAW34+1Pj4K6K7yb81BBbow3PdQCMME91goq7JYy8rqUzmwuUjVlOZ+XnIGuGtPC3uXyXbd5/qn2xcRAQvyd47ah6D9g1dd1OoOuaQCgV66WoieqsmA4UjS2nAWx3IE8YofSEY4M0XIQaoZQ6fgbFYMaOchG984ErkX1FdiRExXTxaPvnWmD6iBNBa8l3u7Z9DfPp7Wb7VoU9VSz85ZWXCWn4n9c4zPbsL+l7Ju6bHJe7vqXBNIS9dOZ582unkxI9LaK3y7/5OxB7W2iZzftVh/HCHVzPcn0VNw==
+  
 before_script:
   - ./testspace_install.sh
   - export PATH="${HOME}/testspace:${PATH}"
 
 script:
-  - testspace config url $TESTSPACE_TOKEN
-  - testspace import .testspace.xml
-  - testspace run
+  - testspace import .testspace.xml ${TESTSPACE_URL}
+  - testspace run ${TESTSPACE_URL}

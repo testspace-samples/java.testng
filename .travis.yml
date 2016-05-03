@@ -10,7 +10,5 @@ script:
   - mvn clean compile
   - mvn cobertura:cobertura -Dcobertura.report.format=xml
 
-# Testspace credentials: "credentials@myorg.testspace.com/myproject/myspace
-  - testspace config url ${TESTSPACE_USER_TOKEN}:@${TESTSPACE_URL}
 # Publish Test Results along with Coverage
-  - testspace publish target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml
+  - testspace publish target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml ${TESTSPACE_URL}
