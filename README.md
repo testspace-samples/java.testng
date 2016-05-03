@@ -35,3 +35,9 @@ To fork this example using Travis requires:
   - Travis Environment Variables:
     - `TESTSPACE_USER_TOKEN` set to the `value` defined as your [Access token](http://help.testspace.com/using-your-organization:user-settings).
     - `TESTSPACE_URL` set to `my-org-name.testspace.com/my-project/my-space`. Refer [here](http://help.testspace.com/reference:runner-reference#config) for more details.
+
+To fork this example using C9 requires installing Java JDK 7 as root:
+
+<pre>
+apt-get install openjdk-7-jdk
+</pre>
