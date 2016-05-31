@@ -20,7 +20,7 @@ echo "$RESULTS_DIR/TEST-TestSuite.xml" > ${self.result}]]>
     </suite>
     <suite name="Coverage" state="1" id=".sh" description="Code coverage based on latest run. Review the ==Reports== tab for historical tracking">
       <attributes>
-        <![CDATA[mv "$COVERAGE_DIR/coverage.xml" ${self.result}]]>
+        <![CDATA[echo "$COVERAGE_DIR/coverage.xml" > ${self.result}]]>
       </attributes>
     </suite>
   </root>
