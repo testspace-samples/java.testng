@@ -1,0 +1,13 @@
+machine:
+  java:
+    version: openjdk7
+
+test:
+  override:
+  - mvn clean compile
+  - mvn pmd:pmd 
+  - mvn cobertura:cobertura -Dcobertura.report.format=xml
+
+  post:  
+    - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
+    - testspace target/pmd.xml [Tests]target/surefire-reports/TEST*.xml target/site/cobertura/coverage.xml $TESTSPACE_TOKEN/${CIRCLE_BRANCH}#circle.Build.${CIRCLE_BUILD_NUM}
