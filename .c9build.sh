@@ -8,10 +8,11 @@ sudo apt-get install openjdk-7-jdk
 mvn clean compile
 
 # Analysis
+mvn pmd:pmd 
 
 # Test
 mvn cobertura:cobertura -Dcobertura.report.format=xml
 
 # Publish
 curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-testspace [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml master.c9
+testspace target/pmd.xml [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml master.c9
