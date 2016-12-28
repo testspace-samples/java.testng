@@ -1,0 +1,3 @@
+target/pmd.xml 
+[Tests]target/surefire-reports/TEST-TestSuite.xml 
+target/site/cobertura/coverage.xml

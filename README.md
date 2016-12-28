@@ -1,4 +1,5 @@
-[![Testspace](http://www.testspace.com/public/img/testspace_logo.png)](http://www.testspace.com)
+[![Testspace](http://www.testspace.com/img/Testspace.png)](http://www.testspace.com)
+
 ***
 
 ## Java/TestNG sample for demonstrating Testspace
@@ -17,13 +18,11 @@ Using Multiple Online CI Services:
 ***
 Publishing **Test Content** using www.testspace.com.
 
-[![Space Health](https://samples.testspace.com/projects/125/spaces/456/badge)](https://samples.testspace.com/projects/125/spaces/456 "Test Cases")
-[![Space Metric](https://samples.testspace.com/projects/125/spaces/456/metrics/299/badge)](https://samples.testspace.com/spaces/456/schema/Code%20Coverage "Code Coverage (branches)")
-[![Space Metric](https://samples.testspace.com/projects/125/spaces/456/metrics/301/badge)](https://samples.testspace.com/spaces/456/schema/Code%20Coverage "Code Coverage (methods)")
-[![Space Metric](https://samples.testspace.com/projects/125/spaces/456/metrics/333/badge)](https://samples.testspace.com/spaces/456/schema/Static%20Analysis "Static Analysis (issues)")
+[![Space Health](https://samples.testspace.com/projects/166/spaces/812/badge)](https://samples.testspace.com/projects/166/spaces/812 "Test Cases")
+[![Space Metric](https://samples.testspace.com/projects/166/spaces/812/metrics/775/badge)](https://samples.testspace.com/spaces/812/schema/Code%20Coverage "Code Coverage (branches)")
+[![Space Metric](https://samples.testspace.com/projects/166/spaces/812/metrics/777/badge)](https://samples.testspace.com/spaces/812/schema/Code%20Coverage "Code Coverage (methods)")
+[![Space Metric](https://samples.testspace.com/projects/166/spaces/812/metrics/778/badge)](https://samples.testspace.com/spaces/812/schema/Static%20Analysis "Static Analysis (issues)")
 
-
-***
 
 ***
 
@@ -35,19 +34,19 @@ Build examples:
  mvn cobertura:cobertura -Dcobertura.report.format=xml
 </pre>
 
-Publishing results example:
-
 <pre>
-testspace target/pmd.xml [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml $TESTSPACE_TOKEN/$BRANCH_NAME
-</pre>
+curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
+testspace @.testspace.txt $TESTSPACE_TOKEN/$GITHUB_ORG:$REPO_NAME/$BRANCH_NAME#$BUILD_NUMBER
+</pre> 
 
-Checkout the [Space](https://samples.testspace.com/projects/java.testng).
+Checkout the published [Test Content](https://samples.testspace.com/projects/testspace-samples:java.testng). Note that the `.testspace.txt` file contains the [set of files](http://help.testspace.com/how-to:publish-content#publishing-via-content-list-file) to publish. 
 
 ***
 
 To replicate this sample: 
-  - Account at www.testspace.com.
-  - CI Environment Variable called **TESTSPACE_TOKEN** required:
-    -  `TESTSPACE_TOKEN` = `credentials@my-org-name.testspace.com/my-project`
-    - `credentials` set to `username:password` or your [access token](http://help.testspace.com/reference:client-reference#login-credentials).
-    - `my-org-name.testspace.com/my-project` based on your *organization* (subdomain) and *project* names.  
+  - Setup account at www.testspace.com.
+  - Create a Environment variable called `TESTSPACE_TOKEN`
+     - `TESTSPACE_TOKEN` = `credentials@Your-Org-Name.testspace.com`
+     - `credentials` set to `username:password` or your [access token](http://help.testspace.com/reference:client-reference#login-credentials)
+     - To [use Testspace with a CI system](http://help.testspace.com/how-to:add-to-ci-workflow), store `TESTSPACE_TOKEN` as a secure environment variable
+ 
