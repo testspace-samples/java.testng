@@ -34,6 +34,8 @@ Build examples:
  mvn cobertura:cobertura -Dcobertura.report.format=xml
 </pre>
 
+Push Content using **Testspace client**: 
+
 <pre>
 curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
 testspace @.testspace.txt $TESTSPACE_TOKEN/$GITHUB_ORG:$REPO_NAME/$BRANCH_NAME#$BUILD_NUMBER
