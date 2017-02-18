@@ -18,10 +18,10 @@ Using Multiple Online CI Services:
 ***
 Publishing **Test Content** using www.testspace.com.
 
-[![Space Health](https://samples.testspace.com/projects/166/spaces/812/badge)](https://samples.testspace.com/projects/166/spaces/812 "Test Cases")
-[![Space Metric](https://samples.testspace.com/projects/166/spaces/812/metrics/775/badge)](https://samples.testspace.com/spaces/812/schema/Code%20Coverage "Code Coverage (branches)")
-[![Space Metric](https://samples.testspace.com/projects/166/spaces/812/metrics/777/badge)](https://samples.testspace.com/spaces/812/schema/Code%20Coverage "Code Coverage (methods)")
-[![Space Metric](https://samples.testspace.com/projects/166/spaces/812/metrics/778/badge)](https://samples.testspace.com/spaces/812/schema/Static%20Analysis "Static Analysis (issues)")
+[![Space Health](https://samples.testspace.com/spaces/812/badge)](https://samples.testspace.com/spaces/812 "Test Cases")
+[![Space Metric](https://samples.testspace.com/spaces/812/metrics/775/badge)](https://samples.testspace.com/spaces/812/schema/Code%20Coverage "Code Coverage (branches)")
+[![Space Metric](https://samples.testspace.com/spaces/812/metrics/777/badge)](https://samples.testspace.com/spaces/812/schema/Code%20Coverage "Code Coverage (methods)")
+[![Space Metric](https://samples.testspace.com/spaces/812/metrics/778/badge)](https://samples.testspace.com/spaces/812/schema/Static%20Analysis "Static Analysis (issues)")
 
 
 ***
