@@ -1,10 +1,14 @@
-[![Testspace](http://www.testspace.com/img/Testspace.png)](http://www.testspace.com)
+[![Testspace](https://www.testspace.com/img/Testspace.png)](http://www.testspace.com)
 
 ***
 
 ## Java/TestNG sample for demonstrating Testspace
 
 Sample demonstrates techniques for using Testspace with Java code and the [TestNG](http://testng.org/).
+  * Using a Testspace Project that is `connected` with this GitHub Repo
+  * Using 3 Online CI services for demonstration purposes only
+  * Can review the Results at [testspace-samples:java.testng](https://samples.testspace.com/projects/testspace-samples:java.testng)  
+  * Refer to our [Getting Started](https://help.testspace.com/getting-started) help articles for more information
 
 ***
 
@@ -18,13 +22,19 @@ Using Multiple Online CI Services:
 ***
 Publishing **Test Content** using www.testspace.com.
 
-[![Space Health](https://samples.testspace.com/spaces/812/badge)](https://samples.testspace.com/spaces/812 "Test Cases")
-[![Space Metric](https://samples.testspace.com/spaces/812/metrics/775/badge)](https://samples.testspace.com/spaces/812/schema/Code%20Coverage "Code Coverage (branches)")
-[![Space Metric](https://samples.testspace.com/spaces/812/metrics/777/badge)](https://samples.testspace.com/spaces/812/schema/Code%20Coverage "Code Coverage (methods)")
-[![Space Metric](https://samples.testspace.com/spaces/812/metrics/778/badge)](https://samples.testspace.com/spaces/812/schema/Static%20Analysis "Static Analysis (issues)")
-
+[![Space Health](https://samples.testspace.com/spaces/812/badge?token=c3ed21215685a52ea7921f37e16ec0fe9201a881)](https://samples.testspace.com/spaces/812 "Test Cases")
+[![Space Metric](https://samples.testspace.com/spaces/812/metrics/776/badge?token=3705d870c50b78076485ee8781cf4f11aa6f487b)](https://samples.testspace.com/spaces/812/schema/Code%20Coverage "Code Coverage (lines)")
+[![Space Metric](https://samples.testspace.com/spaces/812/metrics/778/badge?token=5881f7fbb15146585b0139c783f78388effd44bf)](https://samples.testspace.com/spaces/812/schema/Static%20Analysis "Static Analysis (issues)")
 
 ***
+
+Download and configure the Testspace client 
+
+<pre>
+mkdir -p $HOME/bin
+curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | tar -zxvf- -C $HOME/bin
+testspace config url samples.testspace.com
+</pre>
 
 Build examples:
 
@@ -34,21 +44,8 @@ Build examples:
  mvn cobertura:cobertura -Dcobertura.report.format=xml
 </pre>
 
-Push Content using **Testspace client**: 
+Push Content using Testspace client 
 
 <pre>
-curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-testspace @.testspace.txt $TESTSPACE_TOKEN/$GITHUB_ORG:$REPO_NAME/$BRANCH_NAME#$BUILD_NUMBER
+testspace target/pmd.xml [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml
 </pre> 
-
-Checkout the published [Test Content](https://samples.testspace.com/projects/testspace-samples:java.testng). Note that the `.testspace.txt` file contains the [set of files](http://help.testspace.com/how-to:publish-content#publishing-via-content-list-file) to publish. 
-
-***
-
-To replicate this sample: 
-  - Setup account at www.testspace.com.
-  - Create a Environment variable called `TESTSPACE_TOKEN`
-     - `TESTSPACE_TOKEN` = `credentials@Your-Org-Name.testspace.com`
-     - `credentials` set to `username:password` or your [access token](http://help.testspace.com/reference:client-reference#login-credentials)
-     - To [use Testspace with a CI system](http://help.testspace.com/how-to:add-to-ci-workflow), store `TESTSPACE_TOKEN` as a secure environment variable
- 
