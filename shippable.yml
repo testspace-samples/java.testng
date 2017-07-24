@@ -1,20 +1,17 @@
 language: java
 
-env:
-  global:
-   - secure: TokbBjhsgqfY8UbAhepYL2ojZStxaSmVlHfoZQhi4FJEZNTKO3WdxgyNz0tfW88SsqIjHNik8JlAodNieG54zstaSojcszw0zJ4XTUkdxxvjCsgBXGXCu8mVt0wcZUmLKSeX86yY3+NCObE68bGJXhYqW6+WGlK3qvoNlWkBi+IGt3LvmRCDFKttXlzxGKR1pXxLiK0n2l26FCX8blR1hOzKZ4PVGGuvM+6ivJni2WbaHIfUfRDA9AZOto50LwGVjWg74pgq9ekMNMooFz+fWp1aOKzHGL2qs5HDCy4iYzH4PbJD3Njs0Huyq5gc5gSfV7BaEGsTnODu4HsCtwL0HA==
-  
 build:
  ci:
+  - mkdir -p $HOME/bin
+  - curl -fsSL https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | tar -zxvf- -C $HOME/bin
+  - testspace config url samples.testspace.com
+  - testspace -v
   - mvn clean compile
   - mvn pmd:pmd
   - mvn cobertura:cobertura -Dcobertura.report.format=xml
 
-# Requires TESTSPACE_TOKEN environment variable. 
  on_success:
-   - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-   - testspace @.testspace.txt $TESTSPACE_TOKEN/${SHIPPABLE_REPO_SLUG/\//:}/${BRANCH}#ship.Build.${BUILD_NUMBER}
+  - testspace target/pmd.xml [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml
 
  on_failure:
-   - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-   - testspace @.testspace.txt $TESTSPACE_TOKEN/${SHIPPABLE_REPO_SLUG/\//:}/${BRANCH}#ship.Build.${BUILD_NUMBER}
+   - testspace target/pmd.xml [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml

@@ -13,13 +13,11 @@ mvn pmd:pmd
 # Test
 mvn cobertura:cobertura -Dcobertura.report.format=xml
 
+# Download and configure the Testspace client
+curl -fsSL https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | tar -zxvf- -C $HOME/bin
+# note c9 host requires "access token", storing in ~/.netrc (refer to https://help.testspace.com/reference:client-reference#login-credentials)
+CI=true testspace config url samples.testspace.com
+testspace -v
+
 # Push content
-
-## Requires TESTSPACE_TOKEN = $ACCESS_TOKEN:@samples.testspace.com. 
-
-BRANCH_NAME=`git symbolic-ref --short HEAD`
-GIT_URL=`git remote show origin -n | grep Fetch\ URL: | sed 's/.*URL: //'`
-REPO_SLUG=`echo ${GIT_URL#*github.com?} | sed 's/.git//'`
-
-curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-testspace @.testspace.txt $TESTSPACE_TOKEN/${REPO_SLUG/\//:}/${BRANCH_NAME}#c9.Build
+testspace target/pmd.xml [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml "#c9.Build" --repo git

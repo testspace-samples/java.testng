@@ -2,14 +2,17 @@ machine:
   java:
     version: openjdk7
 
+dependencies:
+  pre:
+   - curl -fsSL https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | tar -zxvf- -C $HOME/bin
+   - testspace config url samples.testspace.com
+   - testspace -v
+   
 test:
   override:
-  - mvn clean compile
-  - mvn pmd:pmd 
-  - mvn cobertura:cobertura -Dcobertura.report.format=xml
+   - mvn clean compile
+   - mvn pmd:pmd 
+   - mvn cobertura:cobertura -Dcobertura.report.format=xml
 
- # Requires TESTSPACE_TOKEN environment variable.      
   post:
-    - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-    - testspace @.testspace.txt $TESTSPACE_TOKEN/${CIRCLE_PROJECT_USERNAME}:${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BRANCH}#circle.Build.${CIRCLE_BUILD_NUM}
-    
+   - testspace target/pmd.xml [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml
