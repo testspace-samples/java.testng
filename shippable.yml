@@ -5,7 +5,6 @@ build:
   - mkdir -p $HOME/bin
   - curl -fsSL https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | tar -zxvf- -C $HOME/bin
   - testspace config url samples.testspace.com
-  - testspace -v
   - mvn clean compile
   - mvn pmd:pmd
   - mvn cobertura:cobertura -Dcobertura.report.format=xml

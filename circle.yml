@@ -6,8 +6,7 @@ dependencies:
   pre:
    - curl -fsSL https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | tar -zxvf- -C $HOME/bin
    - testspace config url samples.testspace.com
-   - testspace -v
-   
+
 test:
   override:
    - mvn clean compile
