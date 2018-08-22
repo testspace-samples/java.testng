@@ -1,0 +1,17 @@
+version: 2.0
+
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8-jdk-stretch-browsers
+    steps:
+      - checkout
+      - run: "curl -fsSL https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin"
+      - run: "testspace config url samples.testspace.com"
+      - run: 'mvn clean compile'
+      - run: "mvn pmd:pmd"
+      - run: "mvn cobertura:cobertura -Dcobertura.report.format=xml"
+      - run:
+          name: Send reports to testspace
+          command: "testspace target/pmd.xml [Tests]target/surefire-reports/TEST*.xml target/site/cobertura/coverage.xml"
+          when: always
