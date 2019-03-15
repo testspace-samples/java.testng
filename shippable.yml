@@ -10,8 +10,5 @@ build:
   - mvn pmd:pmd
   - mvn cobertura:cobertura -Dcobertura.report.format=xml
 
- on_success:
+ always:
   - testspace target/pmd.xml [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml
-
- on_failure:
-   - testspace target/pmd.xml [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml
