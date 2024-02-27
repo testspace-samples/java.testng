@@ -3,7 +3,7 @@ version: 2.0
 jobs:
   build:
     docker:
-      - image: cimg/openjdk:8.0.345-browsers
+      - image: cimg/openjdk:8.0-browsers
     steps:
       - checkout
       - run: "curl -fsSL https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin"
