@@ -25,5 +25,5 @@ jobs:
           mvn test -Dmaven.test.failure.ignore=true jacoco:report
       - name: Push
         run: |
-          testspace target/pmd.xml [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/jacoco/jacoco.xml
+          testspace target/pmd.xml [Tests]target/surefire-reports/TEST*.xml target/site/jacoco/jacoco.xml
         if: always()
