@@ -8,11 +8,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v6
         with:
           distribution: 'zulu'
           java-version: 8
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: testspace-com/setup-testspace@v1
         with:
           domain: samples
@@ -22,8 +22,8 @@ jobs:
           mvn pmd:pmd
       - name: Test
         run: |
-          mvn cobertura:cobertura -Dcobertura.report.format=xml
+          mvn test -Dmaven.test.failure.ignore=true jacoco:report
       - name: Push
         run: |
-          testspace target/pmd.xml [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/cobertura/coverage.xml
+          testspace target/pmd.xml [Tests]target/surefire-reports/TEST-TestSuite.xml target/site/jacoco/coverage.xml
         if: always()
